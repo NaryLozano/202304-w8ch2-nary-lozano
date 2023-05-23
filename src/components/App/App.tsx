@@ -8,8 +8,18 @@ const App = (): React.ReactElement => {
     email: "",
   });
 
+  const [step, setStep] = useState(1);
+
   const onChangeLogin = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPersonalData({ ...personalData, [event.target.id]: event.target.value });
+  };
+
+  const handleNextStep = () => {
+    setStep((currentStep) => currentStep + 1);
+  };
+
+  const handleSubmit = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
   };
 
   const renderForms = () => {
@@ -17,8 +27,8 @@ const App = (): React.ReactElement => {
       case 1:
         return (
           <>
-            <h1>Step 1</h1>
-            <form action="">
+            <form onSubmit={handleSubmit}>
+              <h1>Step 1</h1>
               <label htmlFor="name">
                 <input
                   type="text"
@@ -44,6 +54,7 @@ const App = (): React.ReactElement => {
                   type="date"
                   placeholder="Birthdate"
                   value={personalData.birthdate.toISOString().split("T")[0]}
+                  onChange={onChangeLogin}
                   id="birthdate"
                 />
               </label>
@@ -57,6 +68,9 @@ const App = (): React.ReactElement => {
                   autoComplete="off"
                 />
               </label>
+              <button className="login-form__button" onClick={handleNextStep}>
+                Next
+              </button>
             </form>
           </>
         );
