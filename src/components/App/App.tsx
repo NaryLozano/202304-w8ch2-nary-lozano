@@ -9,6 +9,7 @@ const App = (): React.ReactElement => {
     username: "",
     password: "",
     repeatPassword: "",
+    rememberPassword: false,
   });
 
   const [step, setStep] = useState(1);
@@ -29,9 +30,13 @@ const App = (): React.ReactElement => {
     switch (step) {
       case 1:
         return (
-          <>
+          <div className="form-container">
+            <img
+              src="./img/AccessData.svg"
+              alt="Access Data title"
+              className="img-title"
+            />
             <form onSubmit={handleSubmit}>
-              <h1>Step 1</h1>
               <label htmlFor="name">
                 <input
                   type="text"
@@ -75,13 +80,17 @@ const App = (): React.ReactElement => {
                 Next
               </button>
             </form>
-          </>
+          </div>
         );
       case 2:
         return (
-          <>
+          <div className="form-container">
+            <img
+              src="./img/personalData.svg"
+              alt="personal data title"
+              className="img-title"
+            />
             <form onSubmit={handleSubmit}>
-              <h1>step 2</h1>
               <label htmlFor="username">
                 <input
                   type="text"
@@ -115,10 +124,63 @@ const App = (): React.ReactElement => {
                 Next
               </button>
             </form>
-          </>
+          </div>
+        );
+      case 3:
+        return (
+          <div className="form-container">
+            <img
+              src="./img/login.svg"
+              alt="login title"
+              className="img-title"
+            />
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="login-username">
+                <input
+                  type="text"
+                  placeholder="Username"
+                  value={personalData.username}
+                  id="login-username"
+                  onChange={onChangeLogin}
+                  autoComplete="off"
+                />
+              </label>
+              <label htmlFor="login-password">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={personalData.password}
+                  id="login-password"
+                  onChange={onChangeLogin}
+                  autoComplete="off"
+                />
+              </label>
+              <label htmlFor="rememberPassword">
+                Remember password?
+                <input
+                  type="checkbox"
+                  value={personalData.repeatPassword}
+                  onChange={onChangeLogin}
+                  id="rememberPassword"
+                />
+              </label>
+              <button className="login-form__button" onClick={handleNextStep}>
+                Login
+              </button>
+            </form>
+          </div>
         );
     }
   };
-  return <div>{renderForms()}</div>;
+  return (
+    <div>
+      <img
+        src="./img/theFormulary.svg"
+        alt="The formulary title"
+        className="main-img"
+      />
+      {renderForms()}
+    </div>
+  );
 };
 export default App;
