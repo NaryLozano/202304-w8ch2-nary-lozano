@@ -6,6 +6,9 @@ const App = (): React.ReactElement => {
     lastname: "",
     birthdate: new Date(),
     email: "",
+    username: "",
+    password: "",
+    repeatPassword: "",
   });
 
   const [step, setStep] = useState(1);
@@ -66,6 +69,46 @@ const App = (): React.ReactElement => {
                   id="email"
                   onChange={onChangeLogin}
                   autoComplete="off"
+                />
+              </label>
+              <button className="login-form__button" onClick={handleNextStep}>
+                Next
+              </button>
+            </form>
+          </>
+        );
+      case 2:
+        return (
+          <>
+            <form onSubmit={handleSubmit}>
+              <h1>step 2</h1>
+              <label htmlFor="username">
+                <input
+                  type="text"
+                  placeholder="Username"
+                  value={personalData.username}
+                  id="username"
+                  onChange={onChangeLogin}
+                  autoComplete="off"
+                />
+              </label>
+              <label htmlFor="password">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={personalData.password}
+                  id="password"
+                  onChange={onChangeLogin}
+                  autoComplete="off"
+                />
+              </label>
+              <label htmlFor="birthdate">
+                <input
+                  type="password"
+                  placeholder="Repeat password"
+                  value={personalData.repeatPassword}
+                  onChange={onChangeLogin}
+                  id="repeatPassword"
                 />
               </label>
               <button className="login-form__button" onClick={handleNextStep}>
