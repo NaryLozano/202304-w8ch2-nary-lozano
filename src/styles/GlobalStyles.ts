@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 html {
   font-family: ${(prop) => prop.theme.fonts.primary};
   font-weight: 400;
-  background-color: ${(prop) => prop.theme.colors.light} ;
+  background-color: ${(prop) => prop.theme.colors.lightSecondary} ;
 }
 
 body {
@@ -47,15 +47,22 @@ padding: 0;
 margin: 0;
 }
 
-img {
-  max-width: 100%;
+.main-img {
+    padding-left: 1rem;
+    max-width: 10rem;
+}
+
+.img-title{
+  max-width: 20%;
+  margin-left: 20rem;
 }
 
 form {
   display: flex;
   flex-direction: column;
   width: 300px;
-  margin: 0 auto;
+  margin-left: 5rem;
+  margin-top: 10rem;
   padding: 30px 0px;
   gap: 20px;
   align-items: flex-start;
@@ -66,6 +73,7 @@ input {
     border-radius: 10px;
     border: none;
     box-shadow: 0 3px #d3d0d0;
+    width: 100%;
   }
 
 .login-form__button {
@@ -73,8 +81,19 @@ input {
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    color: #b22222;
+    color: #fff;
     font-weight: bold;
+    width: 80%;
+    background-color: #b22222;
+  }
+  
+  .form-container{
+    display: flex;
+    align-items: center;
+  }
+
+  label{
+    width: 80%;
   }
 `;
 
