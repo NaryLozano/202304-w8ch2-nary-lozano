@@ -10,11 +10,10 @@ const GlobalStyle = createGlobalStyle`
 html {
   font-family: ${(prop) => prop.theme.fonts.primary};
   font-weight: 400;
-  background-color: ${(prop) => prop.theme.colors.dark} ;
+  background-color: ${(prop) => prop.theme.colors.light} ;
 }
 
 body {
-  background-color: ${(prop) => prop.theme.colors.dark} ;
   margin: 0;
 }
 
